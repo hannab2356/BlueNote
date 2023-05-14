@@ -1,0 +1,23 @@
+.btn-left {
+    margin-left: 25%;
+    margin-top: 5%;
+    width: 70%;
+    height: 40%;
+}
+
+.btn-right {
+    margin-right: 25%;
+    margin-top: 5%;
+    width: 70%;
+    height: 40%;
+}
+
+.btn-color {
+    background-color: rgb(66, 173, 159);
+    border-color:rgb(66, 173, 159);
+}
+
+.btn-color:hover {
+    background-color: rgb(55, 143, 131);
+    border-color:rgb(55, 143, 131);
+}

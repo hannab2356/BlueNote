@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row" *ngIf="!registerMode && !loginMode && !loginAdminMode">
+        <div class="cos col-sm" style="text-align: center;">
+            <h1 class="text-primary">Użytkownik</h1>
+            <button class="btn btn-primary btn-lg btn-block" (click)="loginToggle()">Zaloguj się</button>
+            <button class="btn btn-info btn-lg btn-block" (click)="registerToggle()">Zarejestruj się</button>
+        </div>
+        <div class="col-sm" style="text-align: center;">
+            <h1 class="text-primary">Administrator</h1>
+            <button class="btn btn-primary btn-lg btn-block" (click)="loginAdminToggle()">Zaloguj się</button>
+            <button class="btn btn-info btn-lg btn-block">Zostań administratorem</button>
+        </div>
+    </div>
+    
+    <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+          </div>
+        </div>
+    </div>
+
+    <div *ngIf="loginMode" class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <h2 class="text-center text-primary">Logowanie użytkownika</h2>
+          <app-login (cancelLogin)="cancelLoginMode($event)"></app-login>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="loginAdminMode" class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <h2 class="text-center text-primary">Logowanie administratora</h2>
+          <app-login (cancelLogin)="cancelLoginAdminMode($event)"></app-login>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.btn {
+    margin-left: 25%;
+    margin-top: 10%;
+    width: 50%;
+    height: 25%;
+}
+
+.cos {
+    background-image: linear-gradient(rgb(150, 200, 255), rgb(150, 200, 255));
+    background-size: 2px 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 400px;
+}
+

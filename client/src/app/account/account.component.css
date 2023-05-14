@@ -1,0 +1,26 @@
+.cos {
+    background-image: linear-gradient(rgb(150, 200, 255), rgb(150, 200, 255));
+    background-size: 2px 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 400px;
+}
+
+.form-group {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.btn-anuluj {
+    border-color: rgb(93, 185, 247);
+}
+
+.label {
+    color: rgb(93, 185, 247);
+    font-size: 9pt;
+    height: 0pt;
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+}

@@ -1,0 +1,84 @@
+<form [formGroup]='registerForm' (ngSubmit)="registerForm.valid && register()" autocomplete="off">
+    <h2 class="text-center text-primary">Zarejestruj się</h2>
+    <div class="form-group">
+        <!-- <label class="control-label" style="margin-right: 10px;">Login</label> -->
+        <input type="text"
+        [ngClass]="{'is-invalid': registerForm.get('username').errors
+            && registerForm.get('username').touched}"
+        class="form-control"
+        formControlName="username"
+        placeholder="Login">
+
+        <div class="invalid-feedback" 
+        *ngIf="registerForm.get('username').touched 
+            && registerForm.get('username').hasError('required')">
+        Podaj nazwę użytkownika</div>
+    </div>
+
+    <div class="form-group">
+        <input type="text"
+        [ngClass]="{'is-invalid': registerForm.get('birthDate').errors
+            && registerForm.get('birthDate').touched}"
+        class="form-control"
+        formControlName="birthDate"
+        placeholder="Data urodzenia"
+        bsDatepicker [bsConfig]="bsConfig"
+        [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}">
+
+        <div class="invalid-feedback"
+        *ngIf="registerForm.get('birthDate').touched 
+            && registerForm.get('birthDate').hasError('required')">
+        Podaj datę urodzenia</div>
+    </div>
+
+    <div class="form-group">
+        <input type="password"
+        [ngClass]="{'is-invalid': registerForm.get('password').errors 
+            && registerForm.get('password').touched}"
+        formControlName="password" 
+        placeholder="Hasło"
+        class="form-control">
+        <div class="invalid-feedback" 
+        *ngIf="registerForm.get('password').hasError('required') 
+        && registerForm.get('password').touched">
+        Hasło jest wymagane
+        </div>
+        <div class="invalid-feedback" 
+        *ngIf="registerForm.get('password').hasError('minlength') 
+        && registerForm.get('password').touched">
+        Hasło musi posiadać minimum 4 znaki
+        </div>
+        <div class="invalid-feedback" 
+        *ngIf="registerForm.get('password').hasError('maxlength') 
+        && registerForm.get('password').touched">
+        Hasło nie może posiadać więcej niż 8 znaków
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="password"
+          [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors 
+            && registerForm.get('confirmPassword').touched
+            || registerForm.get('confirmPassword').touched
+            && registerForm.hasError('mismatch')}"
+          class="form-control" 
+          formControlName="confirmPassword" 
+          placeholder="Potwierdź hasło">
+          <div class="invalid-feedback" 
+          *ngIf="registerForm.get('confirmPassword').hasError('required') 
+            && registerForm.get('confirmPassword').touched">
+            Hasło jest wymagane
+          </div>
+          <div class="invalid-feedback" 
+          *ngIf="registerForm.hasError('mismatch') 
+            && registerForm.get('confirmPassword').touched">
+            Hasła muszą być takie same
+          </div>
+      </div>
+
+      <div class="form-group text-center">
+        <button class="btn btn-success mr-4" [disabled]="!registerForm.valid" type="submit">Zarejestruj</button>
+        <button class="btn btn-default btn-anuluj" type="button" (click)="cancel()">Anuluj</button>
+      </div>
+
+</form>

@@ -1,0 +1,55 @@
+<div class="container">
+    <form
+        [formGroup]="lessonForm"
+        (ngSubmit)="lessonForm.valid && addLesson()"
+        autocomplete="off">
+
+        <div class="row">
+            <div class="col-sm form-group">
+                <h3 class="text-primary">Tytuł</h3>
+                <input 
+                    type="text"
+                    class="form-control"
+                    formControlName="title"/>
+            </div>
+
+            <div class="col-sm form-group">
+                <h3 class="text-primary">Kategoria</h3>
+                <select type="text"
+                    id="categoryName"
+                    name="categoryName"
+                    class="form-control"
+                    formControlName="categoryName">
+
+                    <option value="akordy">Akordy</option>
+                    <option value="skale">Skale</option>
+                    <option value="tabulatury">Tabulatury</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm form-group">
+                <h3 class="text-primary">Treść</h3>
+                <textarea 
+                    cols="30" 
+                    rows="10" 
+                    class="form-control"
+                    formControlName="content"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group text-center">
+            <button 
+              class="btn btn-success mr-4" 
+              type="submit">
+              Zatwierdź</button>
+            <button 
+              class="btn btn-default btn-anuluj" 
+              type="reset">
+              Porzuć</button>
+        </div>
+    </form>
+</div>
+
+<div class="footer"></div>

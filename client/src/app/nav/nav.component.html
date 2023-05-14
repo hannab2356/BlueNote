@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+  <div class="container">
+    <button class="btnMain btn-outline mt-1 my-2 my-sm-0 ml-2" routerLink='/home' routerLinkActive='active' [disabled]="(accountService.currentUser$ | async)">BlueNote</button>
+      <ul class="navbar-nav mr-auto mt-1">
+        <ng-container *ngIf="(accountService.currentUser$ | async)">
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/main' routerLinkActive='active'>Strona główna</a>
+          </li>
+          <li *appHasRole='["Admin"]' class="nav-item">
+            <a class="nav-link" routerLink='/admin-main' routerLinkActive='active'>Strona administratora</a>
+          </li>
+        </ng-container>
+      </ul>
+      <div class="mt-2 mt-md-0" *ngIf="(accountService.currentUser$ | async) as user">
+        <label class="welcome" style="color:white">Witaj {{user.username | titlecase}}</label>
+        <button class="btn btn-outline my-2 my-sm-0 ml-2" (click)="logout()">Wyloguj się</button>
+      </div>
+    </div>
+</nav>

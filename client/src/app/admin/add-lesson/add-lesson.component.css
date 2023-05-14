@@ -1,0 +1,14 @@
+.form-group {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.btn-anuluj {
+    border-color: rgb(93, 185, 247);
+}
+
+.footer {
+    height: 100px;
+}
